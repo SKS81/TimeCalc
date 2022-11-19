@@ -2,40 +2,76 @@ package my.idea.list;
 
 public class TimeService {
 
-    public int get1FullMin(int sec1, int sec2) {
+    public int getRemSec(int sec1, int sec2) {
         int sumSec = sec1 + sec2;
-        int fullMin = sumSec / 60;
-        return fullMin;
-    }
-    public int get1RemSec(int sec1, int sec2) {
-        int sumSec = sec1 + sec2;
-        int minTemp = get1FullMin(sec1, sec2) * 60;
-        int remSec = sumSec - minTemp;
+        int dopMin = sumSec / 60;
+        int tempSec = dopMin * 60;
+        int remSec = sumSec - tempSec;
         return remSec;
     }
 
-    public int get2FullHor(int min1, int min2) {
-        int sumMin = min1 + min2;
-        int fullHor = sumMin / 60;
-        return fullHor;
+    public int getDopMinFromSec(int sec1, int sec2) {
+        int sumSec = sec1 + sec2;
+        int dopMinFromSec = sumSec / 60;
+        return dopMinFromSec;
     }
-    public int get2RemMin(int min1, int min2) {
-        int sumMin = min1 + min2;
-        int horTemp = get2FullHor(min1, min2) * 60;
-        int remMin = sumMin - horTemp;
+
+    public int getRemMin(int sec1, int sec2, int min1, int min2) {
+        int sumMin = getDopMinFromSec(sec1, sec2) + min1 + min2;
+        int dopHor = sumMin / 60;
+        int tempMin = dopHor * 60;
+        int remMin = sumMin - tempMin;
         return remMin;
     }
 
-    public int get3FullDay(int hor1, int hor2) {
-        int sumHor = hor1 + hor2;
-        int fullDay = sumHor / 24;
-        return fullDay;
+    public int getDopHorFromMin(int sec1, int sec2, int min1, int min2) {
+        int sumMin = getDopMinFromSec(sec1, sec2) + min1 + min2;
+        int dopHorFromMin = sumMin / 60;
+        return dopHorFromMin;
     }
-    public int get3RemHor(int hor1, int hor2) {
-        int sumHor = hor1 + hor2;
-        int horTemp = get3FullDay(hor1, hor2) * 24;
-        int remHor = sumHor - horTemp;
+
+    public int getRemHor(int sec1, int sec2, int min1, int min2, int hor1, int hor2) {
+        int sumHor = getDopHorFromMin(sec1, sec2, min1, min2) + hor1 + hor2;
+        int dopDay = sumHor / 24;
+        int tempHor = dopDay * 24;
+        int remHor = sumHor - tempHor;
         return remHor;
     }
 
+    public int getRemDay(int sec1, int sec2, int min1, int min2, int hor1, int hor2) {
+        int sumHor = getDopHorFromMin(sec1, sec2, min1, min2) + hor1 + hor2;
+        int dopDay = sumHor / 24;
+        int remDay = dopDay;
+        return remDay;
+    }
+
+    public int convMinToSec(int min1) {
+        int fullSecToMin = min1 * 60;
+        return fullSecToMin;
+    }
+
+    public int convHorToSec(int hor1) {
+        int fullSecToHor = hor1 * 60 * 60;
+        return fullSecToHor;
+    }
+
+    public int convHorToMin(int hor1) {
+        int fullMinToHor = hor1 * 60;
+        return fullMinToHor;
+    }
+
+    public int convDayToSec(int day1) {
+        int fullSecToDay = day1 * 24 * 60 * 60;
+        return fullSecToDay;
+    }
+
+    public int convDayToMin(int day1) {
+        int fullMinToDay = day1 * 24 * 60;
+        return fullMinToDay;
+    }
+
+    public int convDayToHor(int day1) {
+        int fullHorToDay = day1 * 24;
+        return fullHorToDay;
+    }
 }

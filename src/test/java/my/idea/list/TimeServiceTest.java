@@ -7,33 +7,48 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 public class TimeServiceTest {
 
     @ParameterizedTest
-    @CsvFileSource(files="src/test/resources/data1.csv")
-    public void plusSec1CSVFile(int expectedMin, int expectedSec, int sec1, int sec2) {
+    @CsvFileSource(files="src/test/resources/data.csv")
+    public void plusAllTimeCSVFile(int expectedDay, int expectedHor, int expectedMin, int expectedSec, int hor1, int hor2, int min1, int min2, int sec1, int sec2) {
         TimeService service = new TimeService();
-        int actualMin = service.get1FullMin(sec1, sec2);
-        int actualSec = service.get1RemSec(sec1, sec2);
-        Assertions.assertEquals(expectedMin, actualMin);
+        int actualSec = service.getRemSec(sec1, sec2);
         Assertions.assertEquals(expectedSec, actualSec);
-    }
-
-    @ParameterizedTest
-    @CsvFileSource(files="src/test/resources/data2.csv")
-    public void plusMin2CSVFile(int expectedHor, int expectedMin, int min1, int min2) {
-        TimeService service = new TimeService();
-        int actualHor = service.get2FullHor(min1, min2);
-        int actualMin = service.get2RemMin(min1, min2);
-        Assertions.assertEquals(expectedHor, actualHor);
+        int actualMin = service.getRemMin(sec1, sec2, min1, min2);
         Assertions.assertEquals(expectedMin, actualMin);
-    }
-
-    @ParameterizedTest
-    @CsvFileSource(files="src/test/resources/data3.csv")
-    public void plusHor3CSVFile(int expectedDay, int expectedHor, int hor1, int hor2) {
-        TimeService service = new TimeService();
-        int actualDay = service.get3FullDay(hor1, hor2);
-        int actualHor = service.get3RemHor(hor1, hor2);
-        Assertions.assertEquals(expectedDay, actualDay);
+        int actualHor = service.getRemHor(sec1, sec2, min1, min2, hor1, hor2);
         Assertions.assertEquals(expectedHor, actualHor);
+        int actualDay = service.getRemDay(sec1, sec2, min1, min2, hor1, hor2);
+        Assertions.assertEquals(expectedDay, actualDay);
     }
 
+
+
+//    @ParameterizedTest
+//    @CsvFileSource(files="src/test/resources/data1.csv")
+//    public void plus2_OnlySecCSVFile(int expectedMin, int expectedSec, int sec1, int sec2) {
+//        TimeService service = new TimeService();
+//        int actualMin = service.get2FullMin(sec1, sec2);
+//        int actualSec = service.get3RemSec(sec1, sec2);
+//        Assertions.assertEquals(expectedMin, actualMin);
+//        Assertions.assertEquals(expectedSec, actualSec);
+//    }
+
+//    @ParameterizedTest
+//    @CsvFileSource(files="src/test/resources/data2.csv")
+//    public void plus3_OnlyMinCSVFile(int expectedHor, int expectedMin, int min1, int min2) {
+//        TimeService service = new TimeService();
+//        int actualHor = service.get3FullHor(min1, min2);
+//        int actualMin = service.get3RemMin(min1, min2);
+//        Assertions.assertEquals(expectedHor, actualHor);
+//        Assertions.assertEquals(expectedMin, actualMin);
+//    }
+
+//    @ParameterizedTest
+//    @CsvFileSource(files="src/test/resources/data3.csv")
+//    public void plus4_OnlyHorCSVFile(int expectedDay, int expectedHor, int hor1, int hor2) {
+//        TimeService service = new TimeService();
+//        int actualDay = service.get4FullDay(hor1, hor2);
+//        int actualHor = service.get4RemHor(hor1, hor2);
+//        Assertions.assertEquals(expectedDay, actualDay);
+//        Assertions.assertEquals(expectedHor, actualHor);
+//    }
 }
