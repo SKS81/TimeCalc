@@ -6,10 +6,11 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 public class TimeServiceTest {
 
+    TimeService service = new TimeService();
+
     @ParameterizedTest
     @CsvFileSource(files="src/test/resources/data.csv")
     public void plusAllTimeCSVFile(int expectedDay, int expectedHor, int expectedMin, int expectedSec, int hor1, int hor2, int min1, int min2, int sec1, int sec2) {
-        TimeService service = new TimeService();
         int actualSec = service.getRemSec(sec1, sec2);
         Assertions.assertEquals(expectedSec, actualSec);
         int actualMin = service.getRemMin(sec1, sec2, min1, min2);
@@ -19,8 +20,6 @@ public class TimeServiceTest {
         int actualDay = service.getRemDay(sec1, sec2, min1, min2, hor1, hor2);
         Assertions.assertEquals(expectedDay, actualDay);
     }
-
-
 
 //    @ParameterizedTest
 //    @CsvFileSource(files="src/test/resources/data1.csv")

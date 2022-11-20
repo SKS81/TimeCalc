@@ -11,8 +11,8 @@ public class Time {
         System.out.println("Вас приветствует программа Калькулятор времени");
         System.out.println();
         System.out.println("Выберите требуемое действие:");
-        System.out.println("1 - сложение и вычитание времени");
-//        System.out.println("2 - определение временного интервала");
+        System.out.println("1 - сложение времени");
+//        System.out.println("2 - вычитание времени");
         System.out.println("3 - конвертер времени");
         System.out.println("4 - выход из программы");
         int change = console.nextInt();
@@ -23,8 +23,7 @@ public class Time {
             System.out.println("2 - сложить только секунды");
             System.out.println("3 - сложить только минуты");
             System.out.println("4 - сложить только часы");
-//            System.out.println("5 - вычитание времени");
-            System.out.println("6 - выход из программы");
+            System.out.println("5 - выход из программы");
             int change1 = console.nextInt();
 
             if (change1 == 1) {
@@ -72,41 +71,37 @@ public class Time {
                 System.exit(0);
 
             } if (change1 == 3) {
-                int sec1 = 0;
-                int sec2 = 0;
+                int hor1 = 0;
+                int hor2 = 0;
                 System.out.println("Укажите минуты, которые прибавляем:");
                 int min1 = console.nextInt();
                 System.out.println("Укажите минуты, к которым прибавляем:");
                 int min2 = console.nextInt();
-                int hor1 = 0;
-                int hor2 = 0;
+                int sec1 = 0;
+                int sec2 = 0;
                 int remMin = service.getRemMin(sec1, sec2, min1, min2);
                 int remHor = service.getRemHor(sec1, sec2, min1, min2, hor1, hor2);
                 int remDay = service.getRemDay(sec1, sec2, min1, min2, hor1, hor2);
                 System.out.println("Рзультат:");
-                System.out.println(remDay + "дн., " + remHor + "час., " + remMin + "мин. и ");
+                System.out.println(remDay + "дн., " + remHor + "час., и " + remMin + "мин.");
                 System.exit(0);
 
             } if (change1 == 4) {
-                int sec1 = 0;
-                int sec2 = 0;
-                int min1 = 0;
-                int min2 = 0;
                 System.out.println("Укажите часы, которые прибавляем:");
                 int hor1 = console.nextInt();
                 System.out.println("Укажите часы, к которым прибавляем:");
                 int hor2 = console.nextInt();
+                int min1 = 0;
+                int min2 = 0;
+                int sec1 = 0;
+                int sec2 = 0;
                 int remHor = service.getRemHor(sec1, sec2, min1, min2, hor1, hor2);
                 int remDay = service.getRemDay(sec1, sec2, min1, min2, hor1, hor2);
                 System.out.println("Рзультат:");
-                System.out.println(remDay + "дн., " + remHor + "час., ");
+                System.out.println(remDay + "дн., и " + remHor + "час.");
                 System.exit(0);
 
-//            } if (change1 == 5) {
-//                вычитание времени
-//                System.exit(0);
-
-            } if (change1 == 6) {
+            } if (change1 == 5) {
                 System.out.println("Программа завершена.");
                 System.exit(0);
 
@@ -117,7 +112,7 @@ public class Time {
             }
 
 //        } if (change == 2) {
-//            определение временного интервала
+//            Вычитание времени
 //            System.exit(0);
 
         } if (change == 3) {
@@ -169,7 +164,7 @@ public class Time {
 
                 } else {
                     System.out.println(min1 + "мин. = " + fullSecToMin + "сек.");
-                    System.out.println("ИЛИ " + remDay + "сут., " + remHor + "час., " + remMin + "мин.");
+                    System.out.println("ИЛИ " + remDay + "сут., " + remHor + "час., и " + remMin + "мин.");
                 }
                 System.exit(0);
 
@@ -183,7 +178,7 @@ public class Time {
                 int hor2 = 0;
                 int remHor = service.getRemHor(sec1, sec2, min1, min2, hor1, hor2);
                 int remDay = service.getRemDay(sec1, sec2, min1, min2, hor1, hor2);
-                int fullSecToHor = service.convHorToSec(min1);
+                int fullSecToHor = service.convHorToSec(hor1);
                 int fullMinToHor = service.convHorToMin(hor1);
                 System.out.println("Рзультат:");
 
@@ -193,7 +188,7 @@ public class Time {
                 } else {
                     System.out.println(hor1 + "час. = " + fullSecToHor + "сек.");
                     System.out.println("ИЛИ " + fullMinToHor + "мин.");
-                    System.out.println("ИЛИ " + remDay + "сут., " + remHor + "час.");
+                    System.out.println("ИЛИ " + remDay + "сут., и " + remHor + "час.");
                 }
                 System.exit(0);
 
