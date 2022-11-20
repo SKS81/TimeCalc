@@ -12,7 +12,7 @@ public class Time {
         System.out.println();
         System.out.println("Выберите требуемое действие:");
         System.out.println("1 - сложение времени");
-//        System.out.println("2 - вычитание времени");
+        System.out.println("2 - вычитание времени");
         System.out.println("3 - конвертер времени");
         System.out.println("4 - выход из программы");
         int change = console.nextInt();
@@ -111,9 +111,34 @@ public class Time {
                 System.exit(0);
             }
 
-//        } if (change == 2) {
-//            Вычитание времени
-//            System.exit(0);
+        } if (change == 2) {
+            System.out.println("Укажите часы, из которых вычитаем: (если часов нет - введите 0)");
+            int hor21 = console.nextInt();
+            System.out.println("Укажите часы, которые вычитаем: (если часов нет - введите 0)");
+            int hor22 = console.nextInt();
+            System.out.println("Укажите минуты, из которых вычитаем: (если минут нет - введите 0)");
+            int min21 = console.nextInt();
+            System.out.println("Укажите минуты, которые вычитаеем: (если минут нет - введите 0)");
+            int min22 = console.nextInt();
+            System.out.println("Укажите секунды, из которых вычитаем: (если секунд нет - введите 0)");
+            int sec21 = console.nextInt();
+            System.out.println("Укажите секунды, которые вычитаем: (если секунд нет - введите 0)");
+            int sec22 = console.nextInt();
+            System.out.println("ОБРАТИТЕ ВНИМАНИЕ:");
+            System.out.println("Вычитание времени рассчитывается как из большего меньшее!");
+            int hor1 = 0;
+            int hor2 = 0;
+            int min1 = 0;
+            int min2 = 0;
+            int sec1 = service.getDifferenceSec(sec21, sec22, min21, min22, hor21, hor22);
+            int sec2 = 0;
+            int remSec = service.getRemSec(sec1, sec2);
+            int remMin = service.getRemMin(sec1, sec2, min1, min2);
+            int remHor = service.getRemHor(sec1, sec2, min1, min2, hor1, hor2);
+            int remDay = service.getRemDay(sec1, sec2, min1, min2, hor1, hor2);
+            System.out.println("Разница во времени (временной интервал) составит:");
+            System.out.println(remDay + "дн., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
+            System.exit(0);
 
         } if (change == 3) {
             System.out.println("Выберите требуемое действие:");
@@ -121,6 +146,7 @@ public class Time {
             System.out.println("2 - минуты в секунды, часы, сутки");
             System.out.println("3 - часы в секунды, минуты, сутки");
             System.out.println("4 - сутки в секунды, минуты, часы");
+            System.out.println("5 - выход из программы");
             int change3 = console.nextInt();
 
             if (change3 == 1) {
@@ -208,6 +234,15 @@ public class Time {
                     System.out.println("ИЛИ " + fullMinToDay + "мин.");
                     System.out.println("ИЛИ " + fullHorToDay + "час.");
                 }
+                System.exit(0);
+
+            } if (change3 == 5) {
+                System.out.println("Программа завершена.");
+                System.exit(0);
+
+            } else {
+                System.out.println("Вы указали некорректное значение.");
+                System.out.println("Перезапустите программу и повторите ввод.");
                 System.exit(0);
             }
 
