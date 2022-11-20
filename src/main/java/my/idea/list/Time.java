@@ -193,12 +193,6 @@ public class Time {
                 System.exit(0);
 
             } if (change3 == 4) {
-                int sec1 = 0;
-                int sec2 = 0;
-                int min1 = 0;
-                int min2 = 0;
-                int hor1 = 0;
-                int hor2 = 0;
                 System.out.println("Введите дни");
                 int day1 = console.nextInt();
                 int fullSecToDay = service.convDayToSec(day1);
