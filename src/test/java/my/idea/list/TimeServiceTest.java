@@ -1,16 +1,18 @@
 package my.idea.list;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class TimeServiceTest {
 
     TimeService service = new TimeService();
 
     @ParameterizedTest
-    @CsvFileSource(files="src/test/resources/data1.csv")
-    public void point1PlusAllTimeCSVFile(int expectedDay, int expectedHor, int expectedMin, int expectedSec, int hor1, int hor2, int min1, int min2, int sec1, int sec2) {
+    @CsvFileSource(files="src/test/resources/data.csv")
+    public void point_1_PlusAllTime_CSVFileTest(int expectedDay, int expectedHor, int expectedMin, int expectedSec, int hor1, int hor2, int min1, int min2, int sec1, int sec2) {
         int actualSec = service.getRemSec(sec1, sec2);
         Assertions.assertEquals(expectedSec, actualSec);
         int actualMin = service.getRemMin(sec1, sec2, min1, min2);
@@ -22,27 +24,55 @@ public class TimeServiceTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(files="src/test/resources/data2.csv")
-    public void point2MinusTimeCSVFile(int expectedTime, int sec21, int sec22, int min21, int min22, int hor21, int hor22, int day21, int day22) {
+    @CsvSource({
+            "0,0,0,0,0,0,0,0,0",
+            "362720,15,55,33,47,21,16,7,3",
+            "362720,55,15,47,33,16,21,3,7",
+    })
+    public void point_2_MinusAllTime_CSVTest(int expectedTime, int sec21, int sec22, int min21, int min22, int hor21, int hor22, int day21, int day22) {
         int actualTime = service.getDifferenceSec(sec21, sec22, min21, min22, hor21, hor22, day21, day22);
         Assertions.assertEquals(expectedTime, actualTime);
     }
 
-//    @ParameterizedTest
-//    @CsvFileSource(files="src/test/resources/data2.csv")
-//    public void plus3_OnlyMinCSVFile(int expectedHor, int expectedMin, int min1, int min2) {
-//        int actualHor = service.get3FullHor(min1, min2);
-//        int actualMin = service.get3RemMin(min1, min2);
-//        Assertions.assertEquals(expectedHor, actualHor);
-//        Assertions.assertEquals(expectedMin, actualMin);
-//    }
+    @Test
+    public void point_3_2_ConvMinToSec_Test() {
+        int expectedSec = 600;
+        int actualSec = service.convMinToSec(10);
+        Assertions.assertEquals(expectedSec, actualSec);
+    }
 
-//    @ParameterizedTest
-//    @CsvFileSource(files="src/test/resources/data3.csv")
-//    public void plus4_OnlyHorCSVFile(int expectedDay, int expectedHor, int hor1, int hor2) {
-//        int actualDay = service.get4FullDay(hor1, hor2);
-//        int actualHor = service.get4RemHor(hor1, hor2);
-//        Assertions.assertEquals(expectedDay, actualDay);
-//        Assertions.assertEquals(expectedHor, actualHor);
-//    }
+    @Test
+    public void point_3_3_ConvHorToSec_Test() {
+        int expectedSec = 10800;
+        int actualSec = service.convHorToSec(3);
+        Assertions.assertEquals(expectedSec, actualSec);
+    }
+
+    @Test
+    public void point_3_3_ConvHorToMin_Test() {
+        int expectedSec = 720;
+        int actualSec = service.convHorToMin(12);
+        Assertions.assertEquals(expectedSec, actualSec);
+    }
+
+    @Test
+    public void point_3_4_ConvDayToSec_Test() {
+        int expectedSec = 86400;
+        int actualSec = service.convDayToSec(1);
+        Assertions.assertEquals(expectedSec, actualSec);
+    }
+
+    @Test
+    public void point_3_4_ConvDayToMin_Test() {
+        int expectedSec = 2880;
+        int actualSec = service.convDayToMin(2);
+        Assertions.assertEquals(expectedSec, actualSec);
+    }
+
+    @Test
+    public void point_3_4_ConvDayToHor_Test() {
+        int expectedSec = 168;
+        int actualSec = service.convDayToHor(7);
+        Assertions.assertEquals(expectedSec, actualSec);
+    }
 }
