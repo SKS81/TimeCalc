@@ -8,7 +8,7 @@ public class Time {
 
         Scanner console = new Scanner(System.in);
         TimeService service = new TimeService();
-        System.out.println("Вас приветствует программа Калькулятор времени");
+        System.out.println("Калькулятор времени");
         System.out.println();
         System.out.println("Выберите требуемое действие:");
         System.out.println("1 - сложение времени");

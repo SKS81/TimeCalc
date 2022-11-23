@@ -78,7 +78,10 @@ public class TimeService {
     public int getDifferenceSec(int sec21, int sec22, int min21, int min22, int hor21, int hor22) {
         int fullSec1 = (hor21 * 60 * 60) + (min21 * 60) + sec21;
         int fullSec2 = (hor22 * 60 * 60) + (min22 * 60) + sec22;
-        if (fullSec1 > fullSec2) {
+        if (fullSec1 == fullSec2) {
+            int differenceSec = 0;
+            return differenceSec;
+        } if (fullSec1 > fullSec2) {
             int differenceSec = fullSec1 - fullSec2;
             return differenceSec;
         } else {
