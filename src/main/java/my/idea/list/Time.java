@@ -49,7 +49,7 @@ public class Time {
                     System.out.println("Вы ничего не сложили");
 
                 } else {
-                    System.out.println(remDay + "дн., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
+                    System.out.println(remDay + "сут., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
                 }
                 System.exit(0);
 
@@ -67,8 +67,13 @@ public class Time {
                 int remHor = service.getRemHor(sec1, sec2, min1, min2, hor1, hor2);
                 int remDay = service.getRemDay(sec1, sec2, min1, min2, hor1, hor2);
                 System.out.println("Рзультат:");
-                System.out.println(remDay + "дн., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
-                System.exit(0);
+                if (remSec == 0 && remMin == 0 && remHor == 0 && remDay == 0) {
+                    System.out.println("Вы ничего не сложили");
+                    System.exit(0);
+                } else {
+                    System.out.println(remDay + "сут., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
+                    System.exit(0);
+                }
 
             } if (change1 == 3) {
                 int hor1 = 0;
@@ -83,8 +88,13 @@ public class Time {
                 int remHor = service.getRemHor(sec1, sec2, min1, min2, hor1, hor2);
                 int remDay = service.getRemDay(sec1, sec2, min1, min2, hor1, hor2);
                 System.out.println("Рзультат:");
-                System.out.println(remDay + "дн., " + remHor + "час., и " + remMin + "мин.");
-                System.exit(0);
+                if (remMin == 0 && remHor == 0 && remDay == 0) {
+                    System.out.println("Вы ничего не сложили");
+                    System.exit(0);
+                } else {
+                    System.out.println(remDay + "сут., " + remHor + "час. и " + remMin + "мин.");
+                    System.exit(0);
+                }
 
             } if (change1 == 4) {
                 System.out.println("Укажите часы, которые прибавляем:");
@@ -98,8 +108,13 @@ public class Time {
                 int remHor = service.getRemHor(sec1, sec2, min1, min2, hor1, hor2);
                 int remDay = service.getRemDay(sec1, sec2, min1, min2, hor1, hor2);
                 System.out.println("Рзультат:");
-                System.out.println(remDay + "дн., и " + remHor + "час.");
-                System.exit(0);
+                if (remHor == 0 && remDay == 0) {
+                    System.out.println("Вы ничего не сложили");
+                    System.exit(0);
+                } else {
+                    System.out.println(remDay + "сут. и " + remHor + "час.");
+                    System.exit(0);
+                }
 
             } if (change1 == 5) {
                 System.out.println("Программа завершена.");
@@ -112,6 +127,10 @@ public class Time {
             }
 
         } if (change == 2) {
+            System.out.println("Укажите сутки, из которых вычитаем: (если суток нет - введите 0)");
+            int day21 = console.nextInt();
+            System.out.println("Укажите сутки, которые вычитаем: (если суток нет - введите 0)");
+            int day22 = console.nextInt();
             System.out.println("Укажите часы, из которых вычитаем: (если часов нет - введите 0)");
             int hor21 = console.nextInt();
             System.out.println("Укажите часы, которые вычитаем: (если часов нет - введите 0)");
@@ -130,15 +149,21 @@ public class Time {
             int hor2 = 0;
             int min1 = 0;
             int min2 = 0;
-            int sec1 = service.getDifferenceSec(sec21, sec22, min21, min22, hor21, hor22);
+            int sec1 = service.getDifferenceSec(sec21, sec22, min21, min22, hor21, hor22, day21, day22);
             int sec2 = 0;
             int remSec = service.getRemSec(sec1, sec2);
             int remMin = service.getRemMin(sec1, sec2, min1, min2);
             int remHor = service.getRemHor(sec1, sec2, min1, min2, hor1, hor2);
             int remDay = service.getRemDay(sec1, sec2, min1, min2, hor1, hor2);
-            System.out.println("Разница во времени (временной интервал) составит:");
-            System.out.println(remDay + "дн., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
-            System.exit(0);
+            if (remSec == 0 && remMin == 0 && remHor == 0 && remDay == 0) {
+                System.out.println("Разницы во времени нет (временной интервал равен нулю)");
+                System.exit(0);
+            } else {
+                System.out.println("Рзультат:");
+                System.out.println("Разница во времени (временной интервал) составит:");
+                System.out.println(remDay + "сут., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
+                System.exit(0);
+            }
 
         } if (change == 3) {
             System.out.println("Выберите требуемое действие:");
@@ -165,11 +190,12 @@ public class Time {
 
                 if (remSec == 0 && remMin == 0 && remHor == 0 && remDay == 0) {
                     System.out.println("Вы ничего не конвертировали");
+                    System.exit(0);
 
                 } else {
                     System.out.println(sec1 + "сек. = " + remDay + "сут., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
+                    System.exit(0);
                 }
-                System.exit(0);
 
             } if (change3 == 2) {
                 int sec1 = 0;
@@ -187,12 +213,13 @@ public class Time {
 
                 if (remMin == 0 && remHor == 0 && remDay == 0) {
                     System.out.println("Вы ничего не конвертировали");
+                    System.exit(0);
 
                 } else {
                     System.out.println(min1 + "мин. = " + fullSecToMin + "сек.");
-                    System.out.println("ИЛИ " + remDay + "сут., " + remHor + "час., и " + remMin + "мин.");
+                    System.out.println("ИЛИ " + remDay + "сут., " + remHor + "час. и " + remMin + "мин.");
+                    System.exit(0);
                 }
-                System.exit(0);
 
             } if (change3 == 3) {
                 int sec1 = 0;
@@ -210,16 +237,17 @@ public class Time {
 
                 if (remHor == 0 && remDay == 0) {
                     System.out.println("Вы ничего не конвертировали");
+                    System.exit(0);
 
                 } else {
                     System.out.println(hor1 + "час. = " + fullSecToHor + "сек.");
                     System.out.println("ИЛИ " + fullMinToHor + "мин.");
-                    System.out.println("ИЛИ " + remDay + "сут., и " + remHor + "час.");
+                    System.out.println("ИЛИ " + remDay + "сут. и " + remHor + "час.");
+                    System.exit(0);
                 }
-                System.exit(0);
 
             } if (change3 == 4) {
-                System.out.println("Введите дни");
+                System.out.println("Введите количество суток");
                 int day1 = console.nextInt();
                 int fullSecToDay = service.convDayToSec(day1);
                 int fullMinToDay = service.convDayToMin(day1);
@@ -228,13 +256,14 @@ public class Time {
 
                 if (day1 == 0) {
                     System.out.println("Вы ничего не конвертировали");
+                    System.exit(0);
 
                 } else {
                     System.out.println(day1 + "сут. = " + fullSecToDay + "сек.");
                     System.out.println("ИЛИ " + fullMinToDay + "мин.");
                     System.out.println("ИЛИ " + fullHorToDay + "час.");
+                    System.exit(0);
                 }
-                System.exit(0);
 
             } if (change3 == 5) {
                 System.out.println("Программа завершена.");

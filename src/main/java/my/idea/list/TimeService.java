@@ -75,9 +75,9 @@ public class TimeService {
         return fullHorToDay;
     }
 
-    public int getDifferenceSec(int sec21, int sec22, int min21, int min22, int hor21, int hor22) {
-        int fullSec1 = (hor21 * 60 * 60) + (min21 * 60) + sec21;
-        int fullSec2 = (hor22 * 60 * 60) + (min22 * 60) + sec22;
+    public int getDifferenceSec(int sec21, int sec22, int min21, int min22, int hor21, int hor22, int day21, int day22) {
+        int fullSec1 = (day21 * 24 * 60 * 60) + (hor21 * 60 * 60) + (min21 * 60) + sec21;
+        int fullSec2 = (day22 * 24 * 60 * 60) + (hor22 * 60 * 60) + (min22 * 60) + sec22;
         if (fullSec1 == fullSec2) {
             int differenceSec = 0;
             return differenceSec;

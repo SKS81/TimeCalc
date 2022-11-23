@@ -23,11 +23,9 @@ public class TimeServiceTest {
 
     @ParameterizedTest
     @CsvFileSource(files="src/test/resources/data2.csv")
-    public void point2MinusTimeCSVFile(int expectedMin, int expectedSec, int sec1, int sec2) {
-//        int actualMin = service.get2FullMin(sec1, sec2);
-//        int actualSec = service.get3RemSec(sec1, sec2);
-//        Assertions.assertEquals(expectedMin, actualMin);
-//        Assertions.assertEquals(expectedSec, actualSec);
+    public void point2MinusTimeCSVFile(int expectedTime, int sec21, int sec22, int min21, int min22, int hor21, int hor22, int day21, int day22) {
+        int actualTime = service.getDifferenceSec(sec21, sec22, min21, min22, hor21, hor22, day21, day22);
+        Assertions.assertEquals(expectedTime, actualTime);
     }
 
 //    @ParameterizedTest
