@@ -72,6 +72,7 @@ public class Time {
                 if (remSec == 0 && remMin == 0 && remHor == 0 && remDay == 0) {
                     System.out.println("Вы ничего не сложили");
                     System.exit(0);
+
                 } else {
                     System.out.println(remDay + "сут., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
                     System.exit(0);
@@ -94,6 +95,7 @@ public class Time {
                 if (remMin == 0 && remHor == 0 && remDay == 0) {
                     System.out.println("Вы ничего не сложили");
                     System.exit(0);
+
                 } else {
                     System.out.println(remDay + "сут., " + remHor + "час. и " + remMin + "мин.");
                     System.exit(0);
@@ -111,9 +113,11 @@ public class Time {
                 int remHor = service.getRemHor(sec1, sec2, min1, min2, hor1, hor2);
                 int remDay = service.getRemDay(sec1, sec2, min1, min2, hor1, hor2);
                 System.out.println("Рзультат:");
+
                 if (remHor == 0 && remDay == 0) {
                     System.out.println("Вы ничего не сложили");
                     System.exit(0);
+
                 } else {
                     System.out.println(remDay + "сут. и " + remHor + "час.");
                     System.exit(0);
@@ -162,6 +166,7 @@ public class Time {
             if (remSec == 0 && remMin == 0 && remHor == 0 && remDay == 0) {
                 System.out.println("Разницы во времени нет (временной интервал равен нулю)");
                 System.exit(0);
+
             } else {
                 System.out.println("Рзультат:");
                 System.out.println("Разница во времени (временной интервал) составляет:");
