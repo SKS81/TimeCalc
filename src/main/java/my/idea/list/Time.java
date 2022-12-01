@@ -50,7 +50,7 @@ public class Time {
                     System.exit(0);
 
                 } else {
-                    System.out.println(remDay + "сут., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
+                    System.out.println(remDay + " сут., " + remHor + " час., " + remMin + " мин. и " + remSec + " сек.");
                     System.exit(0);
                 }
 
@@ -74,7 +74,7 @@ public class Time {
                     System.exit(0);
 
                 } else {
-                    System.out.println(remDay + "сут., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
+                    System.out.println(remDay + " сут., " + remHor + " час., " + remMin + " мин. и " + remSec + " сек.");
                     System.exit(0);
                 }
 
@@ -97,7 +97,7 @@ public class Time {
                     System.exit(0);
 
                 } else {
-                    System.out.println(remDay + "сут., " + remHor + "час. и " + remMin + "мин.");
+                    System.out.println(remDay + " сут., " + remHor + " час. и " + remMin + " мин.");
                     System.exit(0);
                 }
 
@@ -119,7 +119,7 @@ public class Time {
                     System.exit(0);
 
                 } else {
-                    System.out.println(remDay + "сут. и " + remHor + "час.");
+                    System.out.println(remDay + " сут. и " + remHor + " час.");
                     System.exit(0);
                 }
 
@@ -170,7 +170,7 @@ public class Time {
             } else {
                 System.out.println("Рзультат:");
                 System.out.println("Разница во времени (временной интервал) составляет:");
-                System.out.println(remDay + "сут., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
+                System.out.println(remDay + " сут., " + remHor + " час., " + remMin + " мин. и " + remSec + " сек.");
                 System.exit(0);
             }
 
@@ -202,7 +202,7 @@ public class Time {
                     System.exit(0);
 
                 } else {
-                    System.out.println(sec1 + "сек. = " + remDay + "сут., " + remHor + "час., " + remMin + "мин. и " + remSec + "сек.");
+                    System.out.println(sec1 + " сек. = " + remDay + " сут., " + remHor + " час., " + remMin + " мин. и " + remSec + " сек.");
                     System.exit(0);
                 }
 
@@ -225,8 +225,8 @@ public class Time {
                     System.exit(0);
 
                 } else {
-                    System.out.println(min1 + "мин. = " + fullSecToMin + "сек.");
-                    System.out.println("ИЛИ " + remDay + "сут., " + remHor + "час. и " + remMin + "мин.");
+                    System.out.println(min1 + " мин. = " + fullSecToMin + " сек.");
+                    System.out.println("ИЛИ " + remDay + " сут., " + remHor + " час. и " + remMin + " мин.");
                     System.exit(0);
                 }
 
@@ -249,9 +249,9 @@ public class Time {
                     System.exit(0);
 
                 } else {
-                    System.out.println(hor1 + "час. = " + fullSecToHor + "сек.");
-                    System.out.println("ИЛИ " + fullMinToHor + "мин.");
-                    System.out.println("ИЛИ " + remDay + "сут. и " + remHor + "час.");
+                    System.out.println(hor1 + " час. = " + fullSecToHor + " сек.");
+                    System.out.println("ИЛИ " + fullMinToHor + " мин.");
+                    System.out.println("ИЛИ " + remDay + " сут. и " + remHor + " час.");
                     System.exit(0);
                 }
 
@@ -268,9 +268,9 @@ public class Time {
                     System.exit(0);
 
                 } else {
-                    System.out.println(day1 + "сут. = " + fullSecToDay + "сек.");
-                    System.out.println("ИЛИ " + fullMinToDay + "мин.");
-                    System.out.println("ИЛИ " + fullHorToDay + "час.");
+                    System.out.println(day1 + " сут. = " + fullSecToDay + " сек.");
+                    System.out.println("ИЛИ " + fullMinToDay + " мин.");
+                    System.out.println("ИЛИ " + fullHorToDay + " час.");
                     System.exit(0);
                 }
 
