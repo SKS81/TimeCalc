@@ -1,4 +1,4 @@
-package my.idea.list;
+package my.idea.list.services;
 
 public class TimeService {
 

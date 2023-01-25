@@ -1,5 +1,6 @@
-package my.idea.list;
+package my.idea.list.tests;
 
+import my.idea.list.services.TimeService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
